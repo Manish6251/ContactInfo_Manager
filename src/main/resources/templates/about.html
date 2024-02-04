@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<section>
+    <body>
+    <h2>About Contact Manager</h2>
+    <p>This is a simple contact manager web application built with Spring Boot and Thymeleaf.</p>
+    <!-- Add more information as needed -->
+    </body>
+    <script>
+        $(document).ready(()=>{
+        $(".active").removeClass("active");
+        $("#about").addClass("active");
+        });
+    </script>
+</section>
+</body>
+</html>

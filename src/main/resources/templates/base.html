@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}" >
+    <title th:text="${title}">Base</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<!--NavBar start-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/home}">Contact Info Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto text-uppercase">
+                <li class="nav-item">
+                    <a id="home" class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="about" class="nav-link active" th:href="@{/about}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="login" class="nav-link active" th:href="@{/signin}">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="signup" class="nav-link active" th:href="@{/signup}">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End NavBar-->
+
+<div th:replace="${content}"></div>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script th:src="@{/javascript/script.js}"></script>
+</body>
+</html>

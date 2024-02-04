@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">login</title>
+</head>
+<body>
+<section class="background d-flex align-items-center">
+    <div class="wrapper bg-white">
+
+        <div th:if="${param.error}" class="alert alert-danger">
+            Invalid username and password
+        </div>
+
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logout
+            <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+        </div>
+
+        <div th:if="${param.change}" class="alert alert-danger">
+            <p th:text="${param.change}"></p>
+        </div>
+
+        <div class="h2 text-center">Welcome Back</div>
+        <div class="h4 text-muted text-center pt-2">Enter Your Login Details</div>
+        <form class="pt-3" th:action="@{/dologin}" method="post">
+
+            <div class="form-group py-2">
+                <div class="input-field">
+                    <span class="far fa-user p-2"></span>
+                    <input type="text" name="username" placeholder="Username or Email Address">
+                </div>
+            </div>
+
+            <div class="form-group py-1 pb-2">
+                <div class="input-field">
+                    <span class="fas fa-lock p-2"></span>
+                    <input type="password" name="password" placeholder="Enter your Password">
+                    <button class="btn bg-white text-muted">
+                        <span class="far fa-eye-slash"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+                <div class="remember"> <label class="option text-muted mr-3"> Remember me <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
+                <div class="ml-auto"> <a href="#" th:href="@{/forgot}" id="forgot">Forgot Password?</a> </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" name="submit" value="submit" class="btn btn-block btn-lg text-center my-3">Log in</button>
+            </div>
+
+            <div class="text-center pt-3 text-muted">Not a member ? <a href="/signup">Sign up</a></div>
+        </form>
+    </div>
+    <script>
+        $(document).ready(()=>{
+        $(".active").removeClass("active");
+        $("#login").addClass("active");
+        });
+    </script>
+</section>
+</body>
+</html>
